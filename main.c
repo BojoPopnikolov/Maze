@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
 typedef struct {
     int i,j;
     node *p;
@@ -33,7 +32,6 @@ void pop(stack *p){
     p->last = buff->p;
     free(buff);
 }
-
 void ClearMatrix(char matrix[40][30], int n, int m) {
     for (size_t i = 0; i < n; i++)
     {
@@ -95,7 +93,7 @@ void generatePath(char matrix[40][30], int n, int m) {
     printf("Enter width: ");
     scanf_s("%d", &m);
 
-    if (n > 40 || m > 30 || n < 3 || m < 3) {
+    if (n > 40  m > 30  n < 3 || m < 3) {
         printf("Invalid values (max 40x30) (min 3x3)");
         return;
     }
@@ -103,21 +101,20 @@ void generatePath(char matrix[40][30], int n, int m) {
     int i = 0;
     int j = 0;
     time_t t;
-
-    matrix[0][0] = ' ';
+matrix[0][0] = '/';
     srand((unsigned)time(&t));
-    while (1) {
+    while (true) {
         int gen;
         int gen2;
         int newi = i;
-        int newj = j;
-        
+        int    newj = j;
+
         do {
             newi = i;
             newj = j;
             gen = rand() % 2;
             gen2 = rand() % 2;
-            
+
             if (gen == 0) {
                 if (gen2 == 0) {
                     newi--;
@@ -134,11 +131,11 @@ void generatePath(char matrix[40][30], int n, int m) {
                     newj++;
                 }
             }
-        } while (newi < 0 || newj < 0 || newi >= n || newj >= m);
+        } while (newi < 0  newj < 0  newi >= n || newj >= m);
 
         i = newi;
         j = newj;
-        matrix[i][j] = ' ';
+        matrix[i][j] = '/';
         if (i == n - 1 && j == m - 1) {
             break;
         }
@@ -148,15 +145,15 @@ void generatePath(char matrix[40][30], int n, int m) {
     {
         for (int j = 0; j < m; j++)
         {
-            
-            if (matrix[i][j] == ' ') {
+
+            if (matrix[i][j] == '/') {
                 continue;
             }
 
             int gen = rand() % 8;
 
             if (gen == 0) {
-                matrix[i][j] = ' ';
+                matrix[i][j] = '/';
             }
             else {
                 matrix[i][j] = '#';
@@ -165,9 +162,6 @@ void generatePath(char matrix[40][30], int n, int m) {
     }
     printMatrix(matrix, n, m);
 }
-
-
-
 int Menu()
 {
     int n = 0;
