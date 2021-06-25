@@ -183,15 +183,18 @@ menu:
         int n = 0;
         int m = 0;
         generatePath(matrix, n, m);
+        break;
     }
     case 1:
         loadMatrix();
+        break;
     case 2:{
         char matrix[40][30];
         int n = 0;
         int m = 0;
         generatePath(matrix, n, m);
         saveMatrix(matrix);
+        break;
     }
     case 3:
     {
