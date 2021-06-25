@@ -103,7 +103,7 @@ void generatePath(char matrix[40][30], int n, int m) {
     int i = 0;
     int j = 0;
     time_t t;
-matrix[0][0] = '/';
+matrix[0][0] = ' ';
     srand((unsigned)time(&t));
     while (1) {
         int gen;
@@ -137,7 +137,7 @@ matrix[0][0] = '/';
 
         i = newi;
         j = newj;
-        matrix[i][j] = '/';
+        matrix[i][j] = ' ';
         if (i == n - 1 && j == m - 1) {
             break;
         }
@@ -148,14 +148,14 @@ matrix[0][0] = '/';
         for (int j = 0; j < m; j++)
         {
 
-            if (matrix[i][j] == '/') {
+            if (matrix[i][j] == ' ') {
                 continue;
             }
 
             int gen = rand() % 8;
 
             if (gen == 0) {
-                matrix[i][j] = '/';
+                matrix[i][j] = ' ';
             }
             else {
                 matrix[i][j] = '#';
