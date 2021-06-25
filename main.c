@@ -46,17 +46,20 @@ void ClearMatrix(char matrix[40][30], int n, int m) {
 
 void saveMatrix(char matrix[40][30]){
     char name[50];
+    char clear[10];
+    fgets(clear, 10, stdin);
     printf("Enter file name: ");
     fgets(name, 50, stdin);
 
     FILE* file = fopen(name, "wb");
     fwrite(matrix, sizeof(char), 40 * 30, file);
     fclose(file);
-
 }
 
 char** loadMatrix(){
     char name[50];
+    char clear[10];
+    fgets(clear, 10, stdin);
     printf("Select file: ");
     fgets(name, 50, stdin);
 
@@ -164,6 +167,7 @@ matrix[0][0] = ' ';
     }
     printMatrix(matrix, n, m);
 }
+
 int Menu()
 {
     int n = 0;
@@ -183,10 +187,12 @@ menu:
         int n = 0;
         int m = 0;
         generatePath(matrix, n, m);
+        Menu();
         break;
     }
     case 1:
         loadMatrix();
+        Menu();
         break;
     case 2:{
         char matrix[40][30];
@@ -194,11 +200,13 @@ menu:
         int m = 0;
         generatePath(matrix, n, m);
         saveMatrix(matrix);
+        Menu();
         break;
     }
     case 3:
     {
         printf("Not implemented yet \n");
+        Menu();
         break;
     }
     case 4:
@@ -209,12 +217,13 @@ menu:
     case 5:
     {
         printf("Not implemented yet \n");
+        Menu();
         break;
     }
         return 0;
     }
     printf("\n\n");
-    goto menu;
+    //goto menu;
     return 0;
 }
 
