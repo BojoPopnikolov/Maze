@@ -216,9 +216,7 @@ menu:
     }
     case 5:
     {
-        printf("Not implemented yet \n");
-        Menu();
-        break;
+        return 0;
     }
         return 0;
     }
